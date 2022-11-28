@@ -27,7 +27,8 @@ SETTINGS
 ```
 11. Run the producer to start producing messages to kafka. I used https://github.com/aiven/python-fake-data-producer-for-apache-kafka
 to produce fake data.
-```python main.py \                                                                                                                                                           ─╯
+```
+    python main.py \                                                                                                                                                           ─╯
   --security-protocol plaintext \
   --host localhost \
   --port 9092 \
