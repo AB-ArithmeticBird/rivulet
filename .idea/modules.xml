@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rivulet.iml" filepath="$PROJECT_DIR$/.idea/modules/rivulet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rivulet-build.iml" filepath="$PROJECT_DIR$/.idea/modules/rivulet-build.iml" />
-    </modules>
-  </component>
-</project>
