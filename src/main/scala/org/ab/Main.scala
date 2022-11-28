@@ -16,16 +16,12 @@ object Main extends App with StrictLogging{
 
   val (consumerControl, done) = PipeLine.run()
 
-  done.onComplete{_ =>
-    logger.warn("I am here")
-    sys.terminate()
-  }
+
 
   /**
    * This is a blocking call that will wait for the actor system to terminate
    */
   done.andThen { case s =>
-    logger.warn("I am here2")
     consumerControl.shutdown()
     sys.terminate()
   }
