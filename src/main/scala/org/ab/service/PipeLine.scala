@@ -22,10 +22,12 @@ trait PipeLine {
   private val accumulateInterval = conf.getString("clickhouse.client.accumulate-interval").toInt.seconds
   private val BatchSize = conf.getString("batch-size").toInt
 
+  val topic: String = conf.getString("topic")
+  val groupId: String = conf.getString("consumer-group-id")
   /**
    * KafkaSource is akka stream source for akka-kafka consumer
    */
-  val kafkaSource: KafkaSource = KafkaSource("pizza-orders1", "group24")
+  val kafkaSource: KafkaSource = KafkaSource(topic, groupId)
 
   /**
    * ClickHouseStreamingDataRepo is a trait that provides a method toSink() which returns a Sink

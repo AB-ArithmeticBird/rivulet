@@ -14,9 +14,10 @@ object Main extends App with StrictLogging{
 
   private implicit val conf = ConfigFactory.load()
 
+  /**
+   * Main entry point for the application. Starts the pipeline from kafka topic to clickhouse table
+   */
   val (consumerControl, done) = PipeLine.run()
-
-
 
   /**
    * This is a blocking call that will wait for the actor system to terminate

@@ -18,11 +18,7 @@ CREATE TABLE IF NOT EXISTS rivulet_db.events
     timestamp Int64,
     message String
 ) ENGINE = Memory()
-SETTINGS
-    kafka_broker_list = 'localhost:9092',
-    kafka_topic_list = 'pizza-orders',
-    kafka_group_name = 'clickhouse-group',
-    kafka_format = 'JSONEachRow';
+
 
 ```
 11. Run the producer to start producing messages to kafka. I used https://github.com/aiven/python-fake-data-producer-for-apache-kafka
