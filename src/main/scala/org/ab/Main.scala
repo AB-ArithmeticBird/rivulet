@@ -8,7 +8,6 @@ import org.ab.service.PipeLine
 import scala.concurrent.ExecutionContextExecutor
 
 object Main extends App with StrictLogging{
-  logger.warn("I am starting ...")
   private implicit val sys: ActorSystem = ActorSystem("Pipeline")
 
   private implicit val ec: ExecutionContextExecutor = sys.dispatcher

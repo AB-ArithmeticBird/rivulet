@@ -5,10 +5,9 @@ import akka.kafka.ConsumerMessage
 import akka.kafka.javadsl.Consumer
 import akka.stream.scaladsl.{Flow, Keep}
 import akka.{Done, NotUsed}
-import com.typesafe.config.{Config, ConfigFactory}
+import com.typesafe.config.Config
 import com.typesafe.scalalogging.StrictLogging
 import org.ab.repo.ClickHouseStreamingDataRepo
-import org.ab.service.KafkaSource
 import org.ab.{InsertOp, KafkaRec}
 
 import scala.concurrent.duration.DurationInt
