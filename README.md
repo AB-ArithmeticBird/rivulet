@@ -35,7 +35,8 @@ to produce fake data.
   ```
 13. You can see the messages in kafka ui.
 14. Run the application using
-> sbt clean compile
+> sbt 
+> clean compile
 > run_client
 15. You can see the messages in clickhouse ui.
 ```
