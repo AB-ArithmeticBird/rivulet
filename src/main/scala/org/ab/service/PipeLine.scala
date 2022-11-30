@@ -72,7 +72,9 @@ trait PipeLine {
   }
 }
 
-object PipeLine extends PipeLine {
-  override implicit lazy val conf: Config = ConfigFactory.load()
-  override implicit lazy val sys: ActorSystem = ActorSystem("PipeLine")
+object PipeLine {
+  def apply(system: ActorSystem, config: Config): PipeLine = new PipeLine {
+    override implicit lazy val conf: Config = config
+    override implicit lazy val sys: ActorSystem = system
+  }
 }
