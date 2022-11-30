@@ -8,16 +8,20 @@ import org.ab.service.PipeLine
 import scala.concurrent.ExecutionContextExecutor
 
 object Main extends App with StrictLogging{
+  logger.warn("I am starting ...")
   private implicit val sys: ActorSystem = ActorSystem("Pipeline")
 
   private implicit val ec: ExecutionContextExecutor = sys.dispatcher
 
   private implicit val conf = ConfigFactory.load()
 
+  val pipeline =  PipeLine (sys, conf)
+
   /**
    * Main entry point for the application. Starts the pipeline from kafka topic to clickhouse table
    */
-  val (consumerControl, done) = PipeLine(sys, conf).run()
+  val (consumerControl, done) = pipeline.run()
+  logger.warn("pipeline started ...")
 
   /**
    * This is a blocking call that will wait for the actor system to terminate

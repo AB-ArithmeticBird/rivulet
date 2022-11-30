@@ -6,6 +6,7 @@ import akka.kafka.javadsl.Consumer
 import akka.stream.scaladsl.{Flow, Keep}
 import akka.{Done, NotUsed}
 import com.typesafe.config.{Config, ConfigFactory}
+import com.typesafe.scalalogging.StrictLogging
 import org.ab.repo.ClickHouseStreamingDataRepo
 import org.ab.service.KafkaSource
 import org.ab.{InsertOp, KafkaRec}
@@ -13,7 +14,7 @@ import org.ab.{InsertOp, KafkaRec}
 import scala.concurrent.duration.DurationInt
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-trait PipeLine {
+trait PipeLine extends StrictLogging {
   implicit val conf: Config
   implicit val sys: ActorSystem
 
@@ -47,6 +48,7 @@ trait PipeLine {
     .toMat(Inserter.toSink())(Keep.both)
 
   def run(): (Consumer.Control, Future[Done]) = {
+    logger.warn("Starting pipeline")
     p.run()
   }
 
@@ -72,8 +74,9 @@ trait PipeLine {
   }
 }
 
-object PipeLine {
+object PipeLine extends StrictLogging {
   def apply(system: ActorSystem, config: Config): PipeLine = new PipeLine {
+    logger.warn("creating pipeline instance ...")
     override implicit lazy val conf: Config = config
     override implicit lazy val sys: ActorSystem = system
   }

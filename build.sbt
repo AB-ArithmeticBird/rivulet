@@ -23,4 +23,4 @@ libraryDependencies ++= Seq(
   "org.testcontainers" % "kafka" % testcontainersVersion %  Test,
   "org.scalatest" %% "scalatest" % scalatestVersion %  Test
 )
-mainClass in (Compile, packageBin) := Some("org.ab.Main")
+addCommandAlias("run_client", "runMain org.ab.Main")
