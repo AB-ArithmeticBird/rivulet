@@ -52,7 +52,7 @@ trait PipeLine extends StrictLogging {
   }
 
   /**
-   * This is a blocking call that will wait for the pipeline to complete
+   * This flow is responsible for converting the kafka records to the format that can be inserted
    */
 
   private def flow: Flow[ConsumerMessage.CommittableMessage[String, String], InsertOp[KafkaRec], NotUsed] = {
