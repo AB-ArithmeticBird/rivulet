@@ -22,8 +22,8 @@ trait PipeLine extends StrictLogging {
   private val accumulateInterval = conf.getString("clickhouse.client.accumulate-interval").toInt.seconds
   private val BatchSize = conf.getString("batch-size").toInt
 
-  val topic: String = conf.getString("topic")
-  val groupId: String = conf.getString("consumer-group-id")
+  private val topic: String = conf.getString("topic")
+  private val groupId: String = conf.getString("consumer-group-id")
   /**
    * KafkaSource is akka stream source for akka-kafka consumer
    */
@@ -55,7 +55,7 @@ trait PipeLine extends StrictLogging {
    * This is a blocking call that will wait for the pipeline to complete
    */
 
-  def flow: Flow[ConsumerMessage.CommittableMessage[String, String], InsertOp[KafkaRec], NotUsed] = {
+  private def flow: Flow[ConsumerMessage.CommittableMessage[String, String], InsertOp[KafkaRec], NotUsed] = {
     Flow[ConsumerMessage.CommittableMessage[String, String]]
       .groupedWithin(BatchSize, accumulateInterval)
       .map { rows =>

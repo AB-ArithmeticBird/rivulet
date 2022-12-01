@@ -20,7 +20,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-spray-json" % "10.4.0",
   "com.typesafe.akka" %% "akka-stream-testkit" % AkkaVersion % Test,
   "com.typesafe.akka" %% "akka-stream-kafka-testkit" % "2.1.1" % Test,
-  "org.testcontainers" % "kafka" % testcontainersVersion %  Test,
-  "org.scalatest" %% "scalatest" % scalatestVersion %  Test
+  "org.testcontainers" % "kafka" % testcontainersVersion % Test,
+  "org.scalatest" %% "scalatest" % scalatestVersion % Test
 )
 addCommandAlias("run_client", "runMain org.ab.Main")
