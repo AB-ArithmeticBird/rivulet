@@ -1,4 +1,7 @@
-This application is shows that how to use akka to stream data from a kafka topic to clickhouse cluster
+Introduction
+================
+This application shows that how to use akka to stream data from a kafka topic to clickhouse cluster
+
 Setup
 ================
 
