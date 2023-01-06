@@ -1,3 +1,4 @@
+This application is an example to show that how to use akka to stream data from a kafka topic to clickhouse cluster
 Setup
 ================
 
@@ -72,7 +73,7 @@ Limitation
 2. We are using just few query settings from clickhouse. We can add more query settings to make it more robust. One
    important addon can
    to show the query progression using HTTP headers. see the TODO section in QuerySettings.scala
-3. I am not very familiar with clickhouse and for test purpose used memory engine. I think other engine can be better
+3. For test purpose it is using memory engine. I think other engine can be better
    suited for this use case.
 4. The table has two columns. The whole event is stored in one column. A view can be created on top of this table to
    make it more readable.
